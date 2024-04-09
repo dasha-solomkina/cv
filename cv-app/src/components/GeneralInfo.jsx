@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 
 export default function GeneralInfo() {
   const [fullName, setFullName] = useState('Dasha');
@@ -39,7 +39,6 @@ export default function GeneralInfo() {
         <label>
           Address <input value={address} onChange={handleAddressChange} />
         </label>
-        <button type="submit">Submit</button>
       </form>
     </>
   );
