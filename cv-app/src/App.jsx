@@ -10,6 +10,26 @@ import Header from './components/Header.jsx';
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [fullName, setFullName] = useState('Dasha');
+  const [email, setEmail] = useState('@');
+  const [phone, setPhone] = useState('+55');
+  const [address, setAddress] = useState('Brazil');
+
+  const handleFullNameChange = (e) => {
+    setFullName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
 
   return (
     <div className="app">
@@ -21,7 +41,16 @@ function App() {
           isActive={activeIndex === 0}
           onShow={() => setActiveIndex(0)}
         >
-          <GeneralForm />
+          <GeneralForm
+            fullName={fullName}
+            handleFullNameChange={handleFullNameChange}
+            email={email}
+            handleEmailChange={handleEmailChange}
+            phone={phone}
+            handlePhoneChange={handlePhoneChange}
+            address={address}
+            handleAddressChange={handleAddressChange}
+          />
         </Block>
         <Block
           title="Education"
@@ -39,7 +68,12 @@ function App() {
         </Block>
       </div>
       <div className="canvas block">
-        <Canvas />
+        <Canvas
+          fullName={fullName}
+          email={email}
+          phone={phone}
+          address={address}
+        />
       </div>
     </div>
   );
