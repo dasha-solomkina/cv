@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function Block({ title, children, isActive, onShow }) {
   return (
     <div className="block">
@@ -6,7 +7,7 @@ export default function Block({ title, children, isActive, onShow }) {
         <p>{children}</p>
       ) : (
         <button className="editBtn" onClick={onShow}>
-          Edit
+          ﹀
         </button>
       )}
     </div>
