@@ -1,37 +1,20 @@
-import { useState } from 'react';
-// import 'src/App.css';
+/* eslint-disable react/prop-types */
 
-export default function EducationFrom() {
-  const [schoolName, setSchoolName] = useState('HSE');
-  const [degree, setDegree] = useState('Sociology');
-  const [startDate, setStartDate] = useState('2018');
-  const [endDate, setEndDate] = useState('2022');
-  const [location, setLocation] = useState('Brazil');
-
-  const handleSchoolNameChange = (e) => {
-    setSchoolName(e.target.value);
-  };
-
-  const handleDegreeChange = (e) => {
-    setDegree(e.target.value);
-  };
-
-  const handleStartDateChange = (e) => {
-    setStartDate(e.target.value);
-  };
-
-  const handleEndDateChange = (e) => {
-    setEndDate(e.target.value);
-  };
-
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  };
-
+export default function EducationFrom({
+  schoolName,
+  handleSchoolNameChange,
+  degree,
+  handleDegreeChange,
+  startDate,
+  handleStartDateChange,
+  endDate,
+  handleEndDateChange,
+  location,
+  handleLocationChange,
+}) {
   return (
     <>
       <form>
-        {/* <h2>General Information</h2> */}
         <label>
           School Name{' '}
           <input value={schoolName} onChange={handleSchoolNameChange} />

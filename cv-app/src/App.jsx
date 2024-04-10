@@ -1,5 +1,3 @@
-//import { useState } from 'react';
-// import './App.css';
 import GeneralForm from './components/GeneralInfo.jsx';
 import EducationFrom from './components/Education.jsx';
 import ProfessionFrom from './components/Profession.jsx';
@@ -15,6 +13,13 @@ function App() {
   const [phone, setPhone] = useState('+55');
   const [address, setAddress] = useState('Brazil');
 
+  const [schoolName, setSchoolName] = useState('HSE');
+  const [degree, setDegree] = useState('Sociology');
+  const [startDate, setStartDate] = useState('2018');
+  const [endDate, setEndDate] = useState('2022');
+  const [location, setLocation] = useState('Brazil');
+
+  // general
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);
   };
@@ -29,6 +34,26 @@ function App() {
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
+  };
+  // education
+  const handleSchoolNameChange = (e) => {
+    setSchoolName(e.target.value);
+  };
+
+  const handleDegreeChange = (e) => {
+    setDegree(e.target.value);
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  };
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
   };
 
   return (
@@ -57,7 +82,18 @@ function App() {
           isActive={activeIndex === 1}
           onShow={() => setActiveIndex(1)}
         >
-          <EducationFrom />
+          <EducationFrom
+            schoolName={schoolName}
+            handleSchoolNameChange={handleSchoolNameChange}
+            degree={degree}
+            handleDegreeChange={handleDegreeChange}
+            startDate={startDate}
+            handleStartDateChange={handleStartDateChange}
+            endDate={endDate}
+            handleEndDateChange={handleEndDateChange}
+            location={location}
+            handleLocationChange={handleLocationChange}
+          />
         </Block>
         <Block
           title="Professional Experience"
@@ -73,6 +109,9 @@ function App() {
           email={email}
           phone={phone}
           address={address}
+          startDate={startDate}
+          endDate={endDate}
+          location={location}
         />
       </div>
     </div>
