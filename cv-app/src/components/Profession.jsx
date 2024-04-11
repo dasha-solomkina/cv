@@ -1,38 +1,21 @@
-import { useState } from 'react';
-// import 'src/App.css';
-
-export default function ProfessionFrom() {
-  const [companyName, setCompanyName] = useState('Google');
-  const [position, setPosition] = useState('Sociology');
-  const [startDate, setStartDate] = useState('2018');
-  const [endDate, setEndDate] = useState('2022');
-  const [location, setLocation] = useState('Brazil');
-  const [description, setDescription] = useState('It was fun working there');
-
-  const handleCompanyNameChange = (e) => {
-    setCompanyName(e.target.value);
-  };
-
-  const handlePositionChange = (e) => {
-    setPosition(e.target.value);
-  };
-
-  const handleStartDateChange = (e) => {
-    setStartDate(e.target.value);
-  };
-
-  const handleEndDateChange = (e) => {
-    setEndDate(e.target.value);
-  };
-
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  };
-
+/* eslint-disable react/prop-types */
+export default function ProfessionFrom({
+  companyName,
+  handleCompanyNameChange,
+  position,
+  handlePositionChange,
+  startDateJob,
+  handleStartDateJobChange,
+  endDateJob,
+  handleEndDateJobChange,
+  locationJob,
+  handleLocationJobChange,
+  description,
+  handleDescriptionChange,
+}) {
   return (
     <>
       <form>
-        {/* <h2>General Information</h2> */}
         <label>
           Company Name{' '}
           <input value={companyName} onChange={handleCompanyNameChange} />
@@ -42,19 +25,21 @@ export default function ProfessionFrom() {
         </label>
         <label>
           Start Date{' '}
-          <input value={startDate} onChange={handleStartDateChange} />
+          <input value={startDateJob} onChange={handleStartDateJobChange} />
         </label>
         <label>
-          End Date <input value={endDate} onChange={handleEndDateChange} />
+          End Date{' '}
+          <input value={endDateJob} onChange={handleEndDateJobChange} />
         </label>
         <label>
-          Locations <input value={location} onChange={handleLocationChange} />
+          Locations{' '}
+          <input value={locationJob} onChange={handleLocationJobChange} />
         </label>
         <label>
           Description (optional)
           <textarea
             value={description}
-            onChange={setDescription}
+            onChange={handleDescriptionChange}
             name=""
             id=""
             cols="30"

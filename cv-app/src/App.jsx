@@ -8,16 +8,27 @@ import Header from './components/Header.jsx';
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [fullName, setFullName] = useState('Dasha');
-  const [email, setEmail] = useState('@');
-  const [phone, setPhone] = useState('+55');
-  const [address, setAddress] = useState('Brazil');
+  const [fullName, setFullName] = useState('Emily Johnson');
+  const [email, setEmail] = useState('emily.johnson@example.com');
+  const [phone, setPhone] = useState('+1 (555) 123-4567');
+  const [address, setAddress] = useState('Main Street, Cityville');
 
-  const [schoolName, setSchoolName] = useState('HSE');
-  const [degree, setDegree] = useState('Sociology');
+  const [schoolName, setSchoolName] = useState('Cityville University');
+  const [degree, setDegree] = useState(
+    'Bachelor of Science in Computer Science'
+  );
   const [startDate, setStartDate] = useState('2018');
   const [endDate, setEndDate] = useState('2022');
-  const [location, setLocation] = useState('Brazil');
+  const [location, setLocation] = useState('Cityville');
+
+  const [companyName, setCompanyName] = useState('Digital Solutions Corp.');
+  const [position, setPosition] = useState('Software Engineer');
+  const [startDateJob, setStartDateJob] = useState('Jan, 2022');
+  const [endDateJob, setEndDateJob] = useState('Present');
+  const [locationJob, setLocationJob] = useState('Tech Town, State');
+  const [description, setDescription] = useState(
+    'Developed and maintained web applications using HTML, CSS, and JavaScript. Collaborated with cross-functional teams to deliver high-quality software solutions on time.'
+  );
 
   // general
   const handleFullNameChange = (e) => {
@@ -54,6 +65,30 @@ function App() {
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value);
+  };
+
+  // professional
+  const handleCompanyNameChange = (e) => {
+    setCompanyName(e.target.value);
+  };
+
+  const handlePositionChange = (e) => {
+    setPosition(e.target.value);
+  };
+
+  const handleStartDateJobChange = (e) => {
+    setStartDateJob(e.target.value);
+  };
+
+  const handleEndDateJobChange = (e) => {
+    setEndDateJob(e.target.value);
+  };
+
+  const handleLocationJobChange = (e) => {
+    setLocationJob(e.target.value);
+  };
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value);
   };
 
   return (
@@ -100,10 +135,23 @@ function App() {
           isActive={activeIndex === 2}
           onShow={() => setActiveIndex(2)}
         >
-          <ProfessionFrom />
+          <ProfessionFrom
+            companyName={companyName}
+            handleCompanyNameChange={handleCompanyNameChange}
+            position={position}
+            handlePositionChange={handlePositionChange}
+            startDateJob={startDateJob}
+            handleStartDateJobChange={handleStartDateJobChange}
+            endDateJob={endDateJob}
+            handleEndDateJobChange={handleEndDateJobChange}
+            locationJob={locationJob}
+            handleLocationJobChange={handleLocationJobChange}
+            description={description}
+            handleDescriptionChange={handleDescriptionChange}
+          />
         </Block>
       </div>
-      <div className="canvas block">
+      <div className="canvas">
         <Canvas
           fullName={fullName}
           email={email}
@@ -112,6 +160,14 @@ function App() {
           startDate={startDate}
           endDate={endDate}
           location={location}
+          schoolName={schoolName}
+          degree={degree}
+          startDateJob={startDateJob}
+          endDateJob={endDateJob}
+          locationJob={locationJob}
+          companyName={companyName}
+          position={position}
+          description={description}
         />
       </div>
     </div>

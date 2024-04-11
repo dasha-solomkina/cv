@@ -9,6 +9,12 @@ export default function Canvas({
   location,
   schoolName,
   degree,
+  startDateJob,
+  endDateJob,
+  locationJob,
+  companyName,
+  position,
+  description,
 }) {
   return (
     <div>
@@ -20,8 +26,8 @@ export default function Canvas({
           <p id="address">{address}</p>
         </div>
       </div>
+      <h4>Education</h4>
       <div className="education">
-        <h4>Education</h4>
         <div className="date-location">
           <p>
             {startDate}-{endDate}
@@ -31,6 +37,20 @@ export default function Canvas({
         <div className="uni">
           <h5>{schoolName}</h5>
           <p>{degree}</p>
+        </div>
+      </div>
+      <h4>Work Experience</h4>
+      <div className="professional">
+        <div className="date-location">
+          <p>
+            {startDateJob}-{endDateJob}
+          </p>
+          <p>{locationJob}</p>
+        </div>
+        <div className="work">
+          <h5>{companyName}</h5>
+          <p className="position">{position}</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>
