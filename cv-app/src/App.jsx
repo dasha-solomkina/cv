@@ -8,93 +8,102 @@ import Header from './components/Header.jsx';
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [fullName, setFullName] = useState('Emily Johnson');
-  const [email, setEmail] = useState('emily.johnson@example.com');
-  const [phone, setPhone] = useState('+1 (555) 123-4567');
-  const [address, setAddress] = useState('Main Street, Cityville');
 
-  const [schoolName, setSchoolName] = useState('Cityville University');
-  const [degree, setDegree] = useState(
-    'Bachelor of Science in Computer Science'
-  );
-  const [startDate, setStartDate] = useState('2018');
-  const [endDate, setEndDate] = useState('2022');
-  const [location, setLocation] = useState('Cityville');
+  const initialState = {
+    fullName: 'Emily Johnson',
+    email: 'emily.johnson@example.com',
+    phone: '+1 (555) 123-4567',
+    address: 'Main Street, Cityville',
+    schoolName: 'Cityville University',
+    degree: 'Bachelor of Science in Computer Science',
+    startDate: '2018',
+    endDate: '2022',
+    location: 'Cityville',
+    companyName: 'Digital Solutions Corp.',
+    position: 'Software Engineer',
+    startDateJob: 'Jan, 2022',
+    endDateJob: 'Present',
+    locationJob: 'Tech Town, State',
+    description:
+      'Developed and maintained web applications using HTML, CSS, and JavaScript. Collaborated with cross-functional teams to deliver high-quality software solutions on time.',
+  };
+  const [state, setState] = useState(initialState);
 
-  const [companyName, setCompanyName] = useState('Digital Solutions Corp.');
-  const [position, setPosition] = useState('Software Engineer');
-  const [startDateJob, setStartDateJob] = useState('Jan, 2022');
-  const [endDateJob, setEndDateJob] = useState('Present');
-  const [locationJob, setLocationJob] = useState('Tech Town, State');
-  const [description, setDescription] = useState(
-    'Developed and maintained web applications using HTML, CSS, and JavaScript. Collaborated with cross-functional teams to deliver high-quality software solutions on time.'
-  );
-
-  // general
+  // Event handlers
   const handleFullNameChange = (e) => {
-    setFullName(e.target.value);
+    setState({ ...state, fullName: e.target.value });
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setState({ ...state, email: e.target.value });
   };
 
   const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
+    setState({ ...state, phone: e.target.value });
   };
 
   const handleAddressChange = (e) => {
-    setAddress(e.target.value);
+    setState({ ...state, address: e.target.value });
   };
-  // education
+
+  // Education
   const handleSchoolNameChange = (e) => {
-    setSchoolName(e.target.value);
+    setState({ ...state, schoolName: e.target.value });
   };
 
   const handleDegreeChange = (e) => {
-    setDegree(e.target.value);
+    setState({ ...state, degree: e.target.value });
   };
 
   const handleStartDateChange = (e) => {
-    setStartDate(e.target.value);
+    setState({ ...state, startDate: e.target.value });
   };
 
   const handleEndDateChange = (e) => {
-    setEndDate(e.target.value);
+    setState({ ...state, endDate: e.target.value });
   };
 
   const handleLocationChange = (e) => {
-    setLocation(e.target.value);
+    setState({ ...state, location: e.target.value });
   };
 
-  // professional
+  // Professional
   const handleCompanyNameChange = (e) => {
-    setCompanyName(e.target.value);
+    setState({ ...state, companyName: e.target.value });
   };
 
   const handlePositionChange = (e) => {
-    setPosition(e.target.value);
+    setState({ ...state, position: e.target.value });
   };
 
   const handleStartDateJobChange = (e) => {
-    setStartDateJob(e.target.value);
+    setState({ ...state, startDateJob: e.target.value });
   };
 
   const handleEndDateJobChange = (e) => {
-    setEndDateJob(e.target.value);
+    setState({ ...state, endDateJob: e.target.value });
   };
 
   const handleLocationJobChange = (e) => {
-    setLocationJob(e.target.value);
+    setState({ ...state, locationJob: e.target.value });
   };
+
   const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
+    setState({ ...state, description: e.target.value });
+  };
+
+  const handleClearCVChange = () => {
+    const updatedState = {};
+    for (const key in state) {
+      updatedState[key] = '';
+    }
+    setState(updatedState);
   };
 
   return (
     <div className="app">
       <div className="builder">
-        <Header />
+        <Header handleClearCVChange={handleClearCVChange} />
 
         <Block
           title="General Information"
@@ -102,13 +111,13 @@ function App() {
           onShow={() => setActiveIndex(0)}
         >
           <GeneralForm
-            fullName={fullName}
+            fullName={state.fullName}
             handleFullNameChange={handleFullNameChange}
-            email={email}
+            email={state.email}
             handleEmailChange={handleEmailChange}
-            phone={phone}
+            phone={state.phone}
             handlePhoneChange={handlePhoneChange}
-            address={address}
+            address={state.address}
             handleAddressChange={handleAddressChange}
           />
         </Block>
@@ -118,15 +127,15 @@ function App() {
           onShow={() => setActiveIndex(1)}
         >
           <EducationFrom
-            schoolName={schoolName}
+            schoolName={state.schoolName}
             handleSchoolNameChange={handleSchoolNameChange}
-            degree={degree}
+            degree={state.degree}
             handleDegreeChange={handleDegreeChange}
-            startDate={startDate}
+            startDate={state.startDate}
             handleStartDateChange={handleStartDateChange}
-            endDate={endDate}
+            endDate={state.endDate}
             handleEndDateChange={handleEndDateChange}
-            location={location}
+            location={state.location}
             handleLocationChange={handleLocationChange}
           />
         </Block>
@@ -136,38 +145,38 @@ function App() {
           onShow={() => setActiveIndex(2)}
         >
           <ProfessionFrom
-            companyName={companyName}
+            companyName={state.companyName}
             handleCompanyNameChange={handleCompanyNameChange}
-            position={position}
+            position={state.position}
             handlePositionChange={handlePositionChange}
-            startDateJob={startDateJob}
+            startDateJob={state.startDateJob}
             handleStartDateJobChange={handleStartDateJobChange}
-            endDateJob={endDateJob}
+            endDateJob={state.endDateJob}
             handleEndDateJobChange={handleEndDateJobChange}
-            locationJob={locationJob}
+            locationJob={state.locationJob}
             handleLocationJobChange={handleLocationJobChange}
-            description={description}
+            description={state.description}
             handleDescriptionChange={handleDescriptionChange}
           />
         </Block>
       </div>
       <div className="canvas">
         <Canvas
-          fullName={fullName}
-          email={email}
-          phone={phone}
-          address={address}
-          startDate={startDate}
-          endDate={endDate}
-          location={location}
-          schoolName={schoolName}
-          degree={degree}
-          startDateJob={startDateJob}
-          endDateJob={endDateJob}
-          locationJob={locationJob}
-          companyName={companyName}
-          position={position}
-          description={description}
+          fullName={state.fullName}
+          email={state.email}
+          phone={state.phone}
+          address={state.address}
+          startDate={state.startDate}
+          endDate={state.endDate}
+          location={state.location}
+          schoolName={state.schoolName}
+          degree={state.degree}
+          startDateJob={state.startDateJob}
+          endDateJob={state.endDateJob}
+          locationJob={state.locationJob}
+          companyName={state.companyName}
+          position={state.position}
+          description={state.description}
         />
       </div>
     </div>
