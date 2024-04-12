@@ -15,7 +15,7 @@ body {
 .app {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 10%;
+  gap: 5%;
   margin: 5% 5%;
   font-size: 18px;
 }
@@ -65,9 +65,16 @@ textarea {
   margin-top: 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  padding: 8px 12px;
-  border: none;
   background-color: white;
+  padding: 3px 20px;
+  border: 1px dashed #435585;
+  border-radius: 10px;
+  color: #363062;
+  font-weight: 600;
+}
+
+.editBtn:hover {
+  background-color: #818fb41c;
 }
 
 button:hover {
@@ -78,16 +85,15 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 80px;
 }
 
 .header button {
-  /* margin-top: 10px; */
   background-color: #f5e8c7;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   padding: 8px 10px;
   border: 2px solid #435585;
-  /* border: none; */
   border-radius: 10px;
   min-width: 80px;
   color: #363062;
@@ -96,7 +102,6 @@ button:hover {
 
 .header button:hover {
   background-color: #435585;
-  /* border: 2px solid #435585; */
   color: #f5e8c7;
 }
 
@@ -138,7 +143,6 @@ h5 {
 }
 
 .contact p {
-  /* padding: 10px; */
   justify-self: center;
 }
 

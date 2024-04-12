@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import html2canvas from 'html2canvas';
 
 function SaveAsImage() {
